@@ -7,7 +7,7 @@ require 'json'
 
 module Jexbox
   API_VERSION = '0.0.1'
-  DEFAULT_URL = 'https://api.jexbox.com/'
+  DEFAULT_URL = 'https://notify.jexbox.com/'
 
   NOTIFIER_NAME = 'Ruby Jexbox'
   NOTIFIER_VERSION = '0.0.0'

@@ -1,7 +1,14 @@
 require 'helper'
 
-class TestJexbox < MiniTest::Unit::TestCase
+class TestJexbox < MiniTest::TestCase
   def test_dummy
-    assert_equal 1, 1
+    Jexbox.configure do |config|
+      config.api_key = '3d3fb8210d54222ae55c81358ab3a96ea38c4f9e'
+      config.uri = 'http://localhost:8080/api/notify'
+      config.enabled = true
+    end
+
+    Jexbox.notify(Exception.new('test'))
+
   end
 end
