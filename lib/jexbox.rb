@@ -5,6 +5,12 @@ require 'jexbox/railtie' if defined?(Rails::Railtie)
 
 require 'json'
 
+class URI::HTTP
+  def empty?
+    self.to_s.empty?
+  end
+end
+
 module Jexbox
   API_VERSION = '0.0.1'
   DEFAULT_URL = 'https://notify.jexbox.com/'
@@ -26,7 +32,7 @@ module Jexbox
       rescue Exception => ex
         if configuration.logger
           configuration.logger.error <<-EOF
-Failed to notify Jexbox about #{e.msg} due to #{ex.msg}.
+Failed to notify Jexbox about #{e.message} due to #{ex.backtrace}.
 EOF
         end
       end

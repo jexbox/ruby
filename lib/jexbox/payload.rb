@@ -50,6 +50,11 @@ module Jexbox
       [res]
     end
 
+    def page_trace
+      res = {}
+      res['Page Trace'] = ''
+    end
+
     def message_hash
       res = server_data
       res[:notifier] = host_data
