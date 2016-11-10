@@ -28,23 +28,23 @@ module Jexbox
     def exception_data
       parts = exception.backtrace[0].split(':')
       if parts[2]
-        parts[2] = parts[2].gsub(/in `(.*)'/, '\1')
+        parts[2] = parts[2].gsub(/in `(.*)'/, '\1').split('__')[0]
       else
         parts[2] = ''
       end
 
       res = {}
-      res[:exceptionType] = exception.class
+      res[:exceptionType] = exception.class.name
       res[:inFile] = parts[0]
       res[:onLine] = parts[1]
-      res[:inClass] = ''
+      res[:inClass] = parts[0]
       res[:inMethod] = parts[2]
       res
     end
 
     def exception_details
       res = {}
-      res[:class] = ''
+      res[:class] = exception.class.name
       res[:message] = exception.message
       res[:stacktrace] = exception.backtrace
       [res]
