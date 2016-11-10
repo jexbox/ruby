@@ -5,11 +5,11 @@ require 'jexbox/railtie' if defined?(Rails::Railtie)
 
 require 'json'
 
-class URI::HTTP
-  def empty?
-    self.to_s.empty?
-  end
-end
+# class URI::HTTP
+#   def empty?
+#     self.to_s.empty?
+#   end
+# end
 
 module Jexbox
   API_VERSION = '0.0.1'
