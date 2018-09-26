@@ -7,14 +7,14 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+
+require 'minitest'
 require 'minitest/unit'
 require 'minitest/mock'
+require 'minitest/autorun'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'jexbox'
 
-class MiniTest::Unit::TestCase
-end
-
-MiniTest::Unit.autorun
+MiniTest.autorun

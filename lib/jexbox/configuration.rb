@@ -6,7 +6,7 @@ module Jexbox
     attr_accessor :logger
 
     def uri
-      @uri || DEFAULT_URL
+      @uri || URI(DEFAULT_URL)
     end
 
     def uri=(url)

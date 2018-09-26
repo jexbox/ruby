@@ -26,7 +26,7 @@ module Jexbox
     end
 
     def exception_data
-      parts = exception.backtrace[0].split(':')
+      parts = exception.backtrace != nil && exception.backtrace.length > 0 ? exception.backtrace[0].split(':') : [3]
       if parts[2]
         parts[2] = parts[2].gsub(/in `(.*)'/, '\1').split('__')[0]
       else

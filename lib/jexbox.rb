@@ -5,15 +5,9 @@ require 'jexbox/railtie' if defined?(Rails::Railtie)
 
 require 'json'
 
-# class URI::HTTP
-#   def empty?
-#     self.to_s.empty?
-#   end
-# end
-
 module Jexbox
   API_VERSION = '0.0.1'
-  DEFAULT_URL = 'https://notify.jexbox.com/'
+  DEFAULT_URL = 'https://jexbox.com/api/notify'
 
   NOTIFIER_NAME = 'Ruby Jexbox'
   NOTIFIER_VERSION = '0.0.0'

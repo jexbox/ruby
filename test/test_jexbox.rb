@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestJexbox < MiniTest::TestCase
+class TestJexbox < MiniTest::Test
   def test_dummy
     Jexbox.configure do |config|
       config.api_key = '3d3fb8210d54222ae55c81358ab3a96ea38c4f9e'
