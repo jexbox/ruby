@@ -5,13 +5,7 @@ require 'rails'
 module Jexbox
   class Railtie < ::Rails::Railtie
     initializer "jexbox.configure_notifier_middleware" do |app|
-      middleware = if defined?(ActionDispatch::DebugExceptions)
-                     "ActionDispatch::DebugExceptions" # Rails >= 3.2.0
-                   else
-                     "ActionDispatch::ShowExceptions" # Rails < 3.2.0
-                   end
-
-      app.config.middleware.insert_after middleware, "Jexbox::Middleware::Notifier"
+      app.middleware.insert_after ActionDispatch::DebugExceptions, Jexbox::Middleware::Notifier
     end
 
     config.before_initialize do
